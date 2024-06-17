@@ -5,12 +5,12 @@ from typing import (
 
 from nomad.datamodel.data import ElnIntegrationCategory, EntryData
 from nomad.metainfo import (
-    Datetime,
     MSection,
-    SchemaPackage,
-    Quantity,
     Section,
+    Quantity,
     SubSection,
+    Package,
+    Datetime
 )
 
 if TYPE_CHECKING:
@@ -22,30 +22,10 @@ if TYPE_CHECKING:
     )
 
 from nomad.config import config
-from nomad.datamodel.data import Schema
-from nomad.datamodel.metainfo.annotations import ELNAnnotation, ELNComponentEnum
 
-configuration = config.get_plugin_entry_point('nomad_openbis.schema_packages:mypackage')
+configuration = config.get_plugin_entry_point('nomad_openbis.schema_packages:openbis')
 
-m_package = SchemaPackage()
-
-
-class MySchema(Schema):
-    name = Quantity(
-        type=str, a_eln=ELNAnnotation(component=ELNComponentEnum.StringEditQuantity)
-    )
-    message = Quantity(type=str)
-
-    def normalize(self, archive: 'EntryArchive', logger: 'BoundLogger') -> None:
-        super().normalize(archive, logger)
-
-        logger.info('MySchema.normalize', parameter=configuration.parameter)
-        self.message = f'Hello {self.name}!'
-
-
-m_package.__init_metainfo__()
-m_package = Package(name='openbis')
-
+m_package = SchemaPackage(name='openbis')
 
 class OpenbisImportError(Exception):
     pass
@@ -152,7 +132,7 @@ class OpenbisEntry(EntryData):
         else:
             # Initializing pybis object
             try:
-                from pybis import Openbis
+                from ....pybis import Openbis
 
                 openbis = Openbis(self.project_url, verify_certificates=False)
             except Exception:
