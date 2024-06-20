@@ -21,6 +21,14 @@ requires-python = ">=3.9"
 authors = [{ name = "Ahmed Ilyas", email = "john.doe@physik.hu-berlin.de" }]
 maintainers = [{ name = "Ahmed Ilyas", email = "john.doe@physik.hu-berlin.de" }]
 license = { file = "LICENSE" }
+dependencies = [
+    "requests",
+    "urllib3",
+    "pandas",
+    "texttable",
+    "tabulate",
+    "python-dateutil",
+]
 
 [project.urls]
 Repository = "https://github.com/blueraft/nomad-openbis"
@@ -101,4 +109,4 @@ line-ending = "auto"
 package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["src", "pybis"]
