@@ -103,7 +103,3 @@ package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[project.entry-points.'nomad.plugin']
-
-mypackage = "nomad_openbis.schema_packages:mypackage"
