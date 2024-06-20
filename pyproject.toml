@@ -102,7 +102,7 @@ line-ending = "auto"
 package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["src", "pybis"]
 
 [project.entry-points.'nomad.plugin']
 
