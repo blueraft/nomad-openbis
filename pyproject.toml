@@ -21,7 +21,6 @@ requires-python = ">=3.9"
 authors = [{ name = "Ahmed Ilyas", email = "john.doe@physik.hu-berlin.de" }]
 maintainers = [{ name = "Ahmed Ilyas", email = "john.doe@physik.hu-berlin.de" }]
 license = { file = "LICENSE" }
-dependencies = ["nomad-lab>=1.2.2dev578"]
 
 [project.urls]
 Repository = "https://github.com/blueraft/nomad-openbis"
