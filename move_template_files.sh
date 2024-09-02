@@ -1,4 +1,4 @@
 #!/bin/sh
 
-rsync -avh nomad-openbis/ .
-rm -rfv nomad-openbis
+rsync -avh openbis/ .
+rm -rfv openbis
