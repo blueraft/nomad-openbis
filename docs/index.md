@@ -1,4 +1,4 @@
-# Welcome to the `nomad-openbis` documentation
+# Welcome to the `openbis` documentation
 
 Nomad example template
 
