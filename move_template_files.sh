@@ -1,4 +1,9 @@
 #!/bin/sh
 
-rsync -avh nomad-openbis/ .
-rm -rfv nomad-openbis
+if ! command -v rsync >/dev/null 2>&1; then
+  echo "rsync required, but not installed!"
+  exit 1
+else
+  rsync -avh openbis/ .
+  rm -rfv openbis
+fi
